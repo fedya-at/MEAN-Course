@@ -1,0 +1,125 @@
+<div class="m-5 p-5 inscription">
+  <h1>Formulaire d'inscription :</h1>
+  <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <div class="form-group">
+      <label for="exampleInputNom1">Nom</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': myform.submitted && myform.controls['nom'].invalid
+        }"
+        id="exampleInputNom1"
+        name="nom"
+        placeholder="Entre nom"
+        ngModel
+        required
+      />
+    </div>
+    <div
+      class="error-message"
+      *ngIf="myform.submitted && myform.controls['nom'].invalid"
+    >
+      Nom est requis
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPrenom1">Prenom</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': myform.submitted && myform.controls['prenom'].invalid
+        }"
+        id="exampleInputPrenom1"
+        name="prenom"
+        placeholder="Entre prenom"
+        ngModel
+        required
+      />
+    </div>
+    <div
+      class="error-message"
+      *ngIf="myform.submitted && myform.controls['prenom'].invalid"
+    >
+      Prenom est requis
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': myform.submitted && myform.controls['email'].invalid
+        }"
+        id="exampleInputEmail1"
+        name="email"
+        placeholder="Entre email"
+        ngModel
+        required
+      />
+    </div>
+    <div
+      class="error-message"
+      *ngIf="myform.submitted && myform.controls['email'].invalid"
+    >
+      email est requis
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': myform.submitted && myform.controls['password'].invalid
+        }"
+        id="exampleInputPassword1"
+        name="password"
+        placeholder="Password"
+        ngModel
+        minlength="6"
+        required
+      />
+    </div>
+    <div
+      class="error-message"
+      *ngIf="myform.submitted && myform.controls['password'].invalid"
+    >
+      Password est requis et doit contenir au moins 6 caractères.
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputConfirmPassword1">Confirm password</label>
+      <input
+        type="password"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            myform.submitted && myform.controls['confirmPassword'].invalid
+        }"
+        id="exampleInputConfirmPassword1"
+        placeholder="Re-type password"
+        name="confirmPassword"
+        ngModel
+        required
+      />
+    </div>
+    <div
+      class="error-message"
+      *ngIf="myform.submitted && myform.controls['confirmPassword'].invalid"
+    >
+      Confirmation de password est requis et doit correspondre au mot de passe.
+    </div>
+    <div
+      class="error-message "
+      *ngIf="
+        myform.controls['password'].value !==
+        myform.controls['confirmPassword'].value
+      "
+    >
+      Les mots de passe ne correspondent pas.
+    </div>
+
+    <button type="submit" class="btn" style="background-color: #3d251e; color: white; ">Submit</button>
+  </form>
+</div>

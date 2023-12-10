@@ -1,0 +1,18 @@
+<div class="user-details">
+  <img src="../../assets/usr.jpg">
+
+ <div class="content">
+  <h1>User Details:</h1>
+  <div *ngIf="user">
+    <p><strong>Nom:</strong> {{ user.nom }}</p>
+    <p><strong>Prenom:</strong> {{ user.prenom }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+  <div *ngIf="!user">
+    <p><strong>Nom:</strong> {{ user.nom }}</p>
+    <p><strong>Prenom:</strong> {{ user.prenom }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+  <button class="btn btn-danger" (click)="onDeleteUser()">Supprimer</button>
+ </div>
+</div>

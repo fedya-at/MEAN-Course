@@ -1,0 +1,17 @@
+.user-details{
+  margin-top: 100px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  font-family: monospace;
+}
+.user-details img{
+  width: 250px;
+  height: 250px;
+}
+.content{
+  display: grid;
+  align-content: space-between;
+}
+
+

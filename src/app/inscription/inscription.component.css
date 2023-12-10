@@ -1,0 +1,15 @@
+.is-invalid {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.inscription{
+  margin: 5;
+  padding: 5;
+  font-family: monospace;
+}
