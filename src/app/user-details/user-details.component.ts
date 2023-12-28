@@ -12,10 +12,7 @@ export class UserDetailsComponent implements OnInit {
   user: any;
   toast!: toastPayload;
 
-  constructor(
-    private route: ActivatedRoute,
-    private cs: CommonService
-  ) {}
+  constructor(private route: ActivatedRoute, private cs: CommonService) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -35,17 +32,16 @@ export class UserDetailsComponent implements OnInit {
     };
     this.cs.showToast(this.toast);
   }
-
+  checkDelete() {
+    if (this.user === null || typeof this.user === 'undefined') {
+      this.showToast('success', 'User deleted successfully');
+    } else {
+      this.showToast('error', 'Error deleting the user');
+    }
+  }
   onDeleteUser() {
     this.user = null;
-    this.showToast('success', 'User deleted successfully');
-  }
 
-  buttonClick(type: string) {
-    if (type === 'success') {
-      this.showToast('success', 'User submitted successfully');
-    } else {
-      this.showToast('error', 'Error in submitting the user');
-    }
+    this.checkDelete();
   }
 }

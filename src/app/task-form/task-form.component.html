@@ -1,0 +1,57 @@
+<div class="m-5 p-5">
+  <h1>Add task:</h1>
+  <form #myform="ngForm" (ngSubmit)="addTask()">
+    <div class="form-group">
+      <label for="exampleInputNom1">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': myform.submitted && myform.controls['title'].invalid
+        }"
+        id="title"
+        name="title"
+        placeholder="Enter title"
+        [(ngModel)]="task.title"
+        required
+      />
+      <div
+        class="error-message"
+        *ngIf="myform.submitted && myform.controls['title'].invalid"
+      >
+        Title is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="feedback">Description :</label>
+      <textarea
+        id="description"
+        name="description"
+        class="form-control"
+        placeholder="Write description"
+        rows="4"
+        cols="50"
+        [ngClass]="{
+          'is-invalid':
+            myform.submitted && myform.controls['description'].invalid
+        }"
+        [(ngModel)]="task.description"
+        required
+      ></textarea>
+      <div
+        class="error-message"
+        *ngIf="myform.submitted && myform.controls['description'].invalid"
+      >
+        Description is required
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn"
+      style="background-color: #000; color: white"
+    >
+      Add
+    </button>
+  </form>
+</div>

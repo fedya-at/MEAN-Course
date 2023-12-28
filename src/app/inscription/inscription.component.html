@@ -111,7 +111,7 @@
       Confirmation de password est requis et doit correspondre au mot de passe.
     </div>
     <div
-      class="error-message "
+      class="error-message"
       *ngIf="
         myform.controls['password'].value !==
         myform.controls['confirmPassword'].value
@@ -120,6 +120,12 @@
       Les mots de passe ne correspondent pas.
     </div>
 
-    <button type="submit" class="btn" style="background-color: #3d251e; color: white; ">Submit</button>
+    <button
+      type="submit"
+      class="btn"
+      style="background-color: #3d251e; color: white"
+    >
+      Submit
+    </button>
   </form>
 </div>

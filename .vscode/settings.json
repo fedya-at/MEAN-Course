@@ -1,5 +1,4 @@
 {
-    "cSpell.words": [
-        "formulaire"
-    ]
+	"cSpell.words": ["formulaire"],
+	"prettier.bracketSameLine": true
 }

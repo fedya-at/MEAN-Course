@@ -1,28 +1,28 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { IndividualConfig } from 'ngx-toastr';
 import { CommonService, toastPayload } from '../services/common.service';
+
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css'],
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css'],
 })
-export class InscriptionComponent {
+export class ContactComponent {
   toast!: toastPayload;
-  user: any;
+  message: any;
 
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.showToast('success', 'Form submitted successfully!');
-      this.user = form.value;
-      this.router.navigate(['/users', this.user]);
+      this.message = form.value;
+      console.log('Your message', this.message);
     } else {
       this.showToast('error', 'Form is not valid!');
     }
   }
 
-  constructor(private cs: CommonService, private router: Router) {}
+  constructor(private cs: CommonService) {}
 
   showToast(type: string, message: string) {
     this.toast = {
@@ -35,12 +35,5 @@ export class InscriptionComponent {
       } as IndividualConfig,
     };
     this.cs.showToast(this.toast);
-  }
-  buttonClick(type: string) {
-    if (type === 'success') {
-      this.showToast('success', 'User submitted successfully');
-    } else {
-      this.showToast('error', 'Error in submitting the user');
-    }
   }
 }

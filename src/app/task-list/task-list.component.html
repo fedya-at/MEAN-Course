@@ -1,0 +1,14 @@
+<main>
+  <h1>Tasks List :</h1>
+  <div class="canvas-container">
+    <div *ngFor="let task of tasks; let i = index" class="canvas-section">
+      <h2>{{ task.title }}</h2>
+      <p>{{ task.description }}</p>
+      <div class="section-btns">
+        <button class="btn btn-success" (click)="editTask(task)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-4" (click)="addTask()">Add</button>
+</main>

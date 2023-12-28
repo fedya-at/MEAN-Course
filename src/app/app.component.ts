@@ -12,6 +12,15 @@ export class AppComponent {
   title = 'project1';
   toast!: toastPayload;
 
+  tasks: string[] = [];
+
+  addTask(task: string) {
+    this.tasks.push(task);
+  }
+
+  deleteTask(index: number) {
+    this.tasks.splice(index, 1);
+  }
   constructor(private cs: CommonService) {}
 
   buttonClick(type: string) {

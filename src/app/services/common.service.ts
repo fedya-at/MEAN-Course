@@ -9,27 +9,22 @@ export interface toastPayload {
 }
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class CommonService {
-user:any;
+	user: any;
 
-  constructor(private toastr: ToastrService) {
-    // Define toastr GlobalConfig
-    this.toastr.toastrConfig.enableHtml = true;
-  }
+	constructor(private toastr: ToastrService) {
+		// Define toastr GlobalConfig
+		this.toastr.toastrConfig.enableHtml = true;
+	}
 
-  deleteUser() {
-
-    this.user = null;
-  }
-  showToast(toast: toastPayload) {
-    this.toastr.show(
-      toast.message,
-      toast.title,
-      toast.ic,
-      'toast-' + toast.type
-    );
-  }
-
+	showToast(toast: toastPayload) {
+		this.toastr.show(
+			toast.message,
+			toast.title,
+			toast.ic,
+			'toast-' + toast.type
+		);
+	}
 }

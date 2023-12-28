@@ -1,0 +1,83 @@
+<main>
+  <div class="container">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <label for="name">Your Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': myform.submitted && myform.controls['name'].invalid
+          }"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          ngModel
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="myform.submitted && myform.controls['name'].invalid"
+        >
+          Name is required
+        </div>
+
+        <label for="email">Your Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': myform.submitted && myform.controls['email'].invalid
+          }"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          ngModel
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="myform.submitted && myform.controls['email'].invalid"
+        >
+          Email is required
+        </div>
+        <label for="feedback">Feedback:</label>
+        <textarea
+          id="feedback"
+          name="feedback"
+          class="form-control"
+          placeholder="Write your feedback"
+          rows="4"
+          cols="50"
+          [ngClass]="{
+            'is-invalid':
+              myform.submitted && myform.controls['feedback'].invalid
+          }"
+          ngModel
+          required
+        ></textarea>
+        <div
+          class="error-message"
+          *ngIf="myform.submitted && myform.controls['feedback'].invalid"
+        >
+          Feedback is required
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-element">
+        <p>CALL US - 909-000-9009</p>
+        <p>SHARE YOUR FEEDBACK</p>
+        <p>Contact Information:</p>
+        <ul>
+          <li>Email: weloveyou@mail.com</li>
+          <li>Address: Jameson Sparkle St. 25/A, Los Angeles US</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
