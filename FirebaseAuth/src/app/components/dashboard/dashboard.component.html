@@ -1,0 +1,48 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1"><a href="/dashboard" style="text-decoration: none; color: white;">Firebase</a></span>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" style="color: white" href="/profile"> Profile </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="color: white"
+          (click)="authService.SignOut()"
+        >
+          Log out
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="dashboard-container">
+  <div
+    *ngFor="let text of texts; let i = index"
+    class="background"
+    [ngClass]="'background' + i"
+  ></div>
+  <div class="criterion">
+    <div
+      *ngFor="let text of texts; let i = index"
+      class="text"
+      [ngClass]="'text' + i"
+    >
+      {{ text }}
+    </div>
+    <div
+      *ngFor="let text of texts; let i = index"
+      class="frame"
+      [ngClass]="'frame' + i"
+    ></div>
+    <div *ngFor="let text of texts; let i = index">
+      <div
+        *ngFor="let j of particles"
+        class="particle"
+        [ngClass]="'particle' + i + j"
+      ></div>
+    </div>
+  </div>
+</div>

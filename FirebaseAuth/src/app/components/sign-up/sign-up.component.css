@@ -1,0 +1,39 @@
+.container {
+  border-radius: 20px;
+}
+
+.card {
+  height: 400px;
+  margin-top: 200px;
+  border-radius: 20px;
+}
+.card-title {
+  font-weight: bold;
+  margin-left: 150px;
+}
+.card-body {
+  display: grid;
+  grid-gap: 20px;
+  padding: 30px;
+}
+
+.form-group {
+  grid-row: auto;
+}
+
+.card-body input,
+.card-body span {
+  margin-bottom: 10px;
+}
+
+.redirect-to-login {
+  margin-bottom: 20px;
+}
+.forgot-password {
+  color: cornflowerblue;
+  font-weight: bold;
+}
+.redirect {
+  color: brown;
+  font-weight: bold;
+}

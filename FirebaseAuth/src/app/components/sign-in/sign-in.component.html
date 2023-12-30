@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-body">
+      <h3 class="card-title">Sign In</h3>
+
+    <form #myform="ngForm" (ngSubmit)="onSignIn(myform)">
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+          name="email"
+          [(ngModel)]="email"
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="myform.submitted && myform.controls['email'].invalid"
+        >
+          Email is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="password"
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="myform.submitted && myform.controls['password'].invalid"
+        >
+          Password is required
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="button"
+          class="btn btn-primary"
+          value="Log in"
+          [disabled]="myform.invalid"
+          (click)="authService.SignIn(email, password)"
+        />
+      </div>
+    
+
+      <div class="forgot-password">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div>
+    </form>
+  </div>
+  <div class="redirect-to-login card-footer">
+    <span>
+      Don't have an account?
+      <span class="redirect" routerLink="/register-user">Sign Up</span>
+    </span>
+  </div>
+</div>

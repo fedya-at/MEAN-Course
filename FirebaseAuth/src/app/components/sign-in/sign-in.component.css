@@ -1,0 +1,48 @@
+.is-invalid {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.card{
+  width: 500px;
+  height: 400px;
+  margin-top:200px ;
+  margin-left: 30%;
+  border-radius: 20px;
+
+}
+.card-title{
+  font-weight: bold;
+  margin-left: 150px;
+}
+.card-body {
+  display: grid;
+  grid-gap: 20px;
+  padding: 30px; 
+}
+
+.form-group {
+  grid-row: auto; 
+}
+
+.card-body input,
+.card-body span {
+  margin-bottom: 10px; }
+
+.redirect-to-login {
+  margin-bottom: 20px; 
+}
+.forgot-password {
+  color: cornflowerblue;
+  font-weight: bold;
+}
+.redirect{  color:brown;
+    font-weight: bold;
+
+}
+

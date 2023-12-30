@@ -1,0 +1,98 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1"><a href="/dashboard" style="text-decoration: none; color: white;">Firebase</a></span>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" style="color: white" href="/profile"> Profile </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="color: white"
+          (click)="authService.SignOut()"
+        >
+          Log out
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <main role="main" class="userInfo col-md-2">
+    <div class="inner-adjust">
+      <div class="row" *ngIf="authService.userData as user">
+        <div class="col-md-12">
+          <div class="media">
+            <img
+              class="profileImage"
+              src="{{
+                user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+              }}"
+              alt="{{ user.displayName }}"
+            />
+            <div class="media-body">
+              <h1>
+                <strong>{{
+                  user.displayName ? user.displayName : "User"
+                }}</strong>
+              </h1>
+              <p>
+                Email: <strong>{{ user.email }}</strong>
+              </p>
+              <p>
+                Email Verified: <strong>{{ user.emailVerified }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="row">
+    <!-- Side form for updating user information -->
+    <aside class="col-md-30">
+      <h2>Update Profile</h2>
+      <form>
+        <div class="mb-3">
+          <label for="displayName" class="form-label">Full Name : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="displayName"
+            [(ngModel)]="editedUser.displayName"
+            name="displayName"
+            placeholder="Enter Your Full Name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)]="editedUser.email"
+            name="email"
+            placeholder="Enter Your Email"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="photoURL" class="form-label">Photo : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="photoURL"
+            [(ngModel)]="editedUser.photoURL"
+            name="photoURL"
+            placeholder="Insert Image URL"
+          />
+        </div>
+        <button class="btn btn-primary" (click)="saveChanges()">
+          Save Changes
+        </button>
+      </form>
+    </aside>
+  </div>
+</div>
